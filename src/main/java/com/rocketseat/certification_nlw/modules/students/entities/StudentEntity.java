@@ -1,26 +1,23 @@
 package com.rocketseat.certification_nlw.modules.students.entities;
 
 import java.time.LocalDateTime;
-//import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-//import org.hibernate.annotations.CreationTimestamp;
-
-//import com.fasterxml.jackson.annotation.JsonBackReference;
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-//import lombok.Builder;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "students")
-//@Builder
+@Builder
 public class StudentEntity {
 
     @Id
@@ -44,7 +41,7 @@ public class StudentEntity {
     // ManyToMany
 
     @OneToMany(mappedBy = "studentEntity")
-    // @JsonBackReference
+    @JsonBackReference
     private List<CertificationStudentEntity> certificationStudentEntity;
 
     @CreationTimestamp
